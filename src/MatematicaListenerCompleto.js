@@ -26,24 +26,28 @@ export default class MatematicaListenerCompleto extends MatematicaListener {
       const op = ctx.children[1].getText();
       const right = ctx.children[2];
       let valor = null;
-      const operando1 = left.valor;
-      const operando2 = right.valor;
-      switch (op) {
-        case '^':
-          valor = Math.pow(operando1, operando2);
-          break;
-        case '*':
-          valor = operando1 * operando2;
-          break;
-        case '/':
-          valor = operando1 / operando2;
-          break;
-        case '+':
-          valor = operando1 + operando2;
-          break;
-        case '-':
-          valor = operando1 - operando2;
-          break;
+      if (left.getText() == '(') {
+        valor = ctx.children[1].valor;
+      } else {
+        const operando1 = left.valor;
+        const operando2 = right.valor;
+        switch (op) {
+          case '^':
+            valor = Math.pow(operando1, operando2);
+            break;
+          case '*':
+            valor = operando1 * operando2;
+            break;
+          case '/':
+            valor = operando1 / operando2;
+            break;
+          case '+':
+            valor = operando1 + operando2;
+            break;
+          case '-':
+            valor = operando1 - operando2;
+            break;
+        }
       }
       ctx.valor = valor;
     }
