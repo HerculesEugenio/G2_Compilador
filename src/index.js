@@ -12,15 +12,15 @@ export let parse = (input) => {
   parser.buildParseTrees = true;
   const tree = parser.programa();
 
-  /* usando o MatematicaListenerSimples */
-  /*
+  /* usando o MatematicaListenerSimples 
+  
   const listener = new MatematicaListenerSimples();
   antlr4.tree.ParseTreeWalker.DEFAULT.walk(listener, tree);
-  return null;
-  */
-
-  /* usando o MatematicaListenerCompleto */
+  return null;*/
+  
+ 
   const listener = new MatematicaListenerCompleto();
   antlr4.tree.ParseTreeWalker.DEFAULT.walk(listener, tree);
   return listener.expressoes;
+  
 }

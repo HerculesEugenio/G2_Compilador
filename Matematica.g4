@@ -1,15 +1,13 @@
 grammar Matematica;
 
-programa: (expressao NEWLINE?)* EOF;
-expressao:
-	expressao '^' expressao
-	| expressao ('*' | '/') expressao
-	| expressao ('+' | '-') expressao
-	| INT
-	| INCOGNITA
-	| '(' expressao ')';
+programa:'Create' nome_pilha NEWLINE funcao+ EOF;
+funcao: (push| pop | get_Top | apagarPilha) NEWLINE?;
+apagarPilha:'Delete'  nome_pilha;
+nome_pilha: TOKEN ;
+push :'Push ' TOKEN;
+pop :'Pop';
+get_Top :'Get_Top';
 
-NEWLINE: [\r\n]+ -> skip;
-WS: [ \t]+ -> skip;
-INT: [0-9]+;
-INCOGNITA: [a-z];
+TOKEN   : [a-zA-Z0-9]+;
+NEWLINE : '\r'? '\n' ;  
+WS      : [ \t]+ -> skip ;

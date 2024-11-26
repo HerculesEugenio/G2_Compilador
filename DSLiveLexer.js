@@ -29,7 +29,7 @@ const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
 
 const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.dfa.DFA(ds, index) );
 
-export default class MatematicaLexer extends antlr4.Lexer {
+export default class DSLiveLexer extends antlr4.Lexer {
 
     static grammarFileName = "Matematica.g4";
     static channelNames = [ "DEFAULT_TOKEN_CHANNEL", "HIDDEN" ];
@@ -47,15 +47,15 @@ export default class MatematicaLexer extends antlr4.Lexer {
     }
 }
 
-MatematicaLexer.EOF = antlr4.Token.EOF;
-MatematicaLexer.T__0 = 1;
-MatematicaLexer.T__1 = 2;
-MatematicaLexer.T__2 = 3;
-MatematicaLexer.T__3 = 4;
-MatematicaLexer.T__4 = 5;
-MatematicaLexer.TOKEN = 6;
-MatematicaLexer.NEWLINE = 7;
-MatematicaLexer.WS = 8;
+DSLiveLexer.EOF = antlr4.Token.EOF;
+DSLiveLexer.T__0 = 1;
+DSLiveLexer.T__1 = 2;
+DSLiveLexer.T__2 = 3;
+DSLiveLexer.T__3 = 4;
+DSLiveLexer.T__4 = 5;
+DSLiveLexer.TOKEN = 6;
+DSLiveLexer.NEWLINE = 7;
+DSLiveLexer.WS = 8;
 
 
 
